@@ -23,6 +23,7 @@ export class Router {
     public getRoutes(){
         return this.routes;
     }
+    
 
 }
 
