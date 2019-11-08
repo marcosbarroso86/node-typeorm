@@ -1,18 +1,9 @@
-var request = require("request");
-
-var base_url = "http://localhost:8888/api/"
-
-describe("Auditoria de Terreno Server", () => {
-
-    describe("GET /employee", () => {
-        
-        const resource = "employee";
-
-        it("returns status code 200", () => {
-            request.get( base_url + resource, (error, response, body) => {
-                expect(response.statusCode).toBe(200);
-            });
-        });
-
+describe("A suite is just a function", function() {
+    var a;
+  
+    it("and so is a spec", function() {
+      a = true;
+  
+      expect(a).toBe(true);
     });
-});
+  });

@@ -13,7 +13,7 @@ export class EmployeeController {
 
     public getEmployees = (req: Request , res: Response ) => {
         this.employeeService.getEmployess()
-        .then((employees:Employee[]) => {
+        .then((employees:any[]) => {
             HTTPResponseHandler.sendSuccess(res , employees);
         })
         .catch((err) => {

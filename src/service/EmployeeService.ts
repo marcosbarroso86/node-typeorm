@@ -7,9 +7,22 @@ export class EmployeeService {
     constructor() {}
 
     public getEmployess = async () => {
-        const employeeRepository = await this.getRepository();
-        const res = await employeeRepository.find();
-        return res;
+        /* const employeeRepository = await this.getRepository();
+        const res = await employeeRepository.find(); */
+        return [
+            {
+
+                nombre : 'matias',
+                apellido : 'ciarla'
+    
+            },
+            {
+
+                nombre : 'joni',
+                apellido : 'madrigale'
+    
+            }
+        ] 
     }
 
     public getEmployeeById = async (emplooyeID:number) => {

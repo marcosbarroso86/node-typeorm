@@ -2,10 +2,8 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let methodOverride = require('method-override');
 let cors = require('cors');
-
-//For SWAGGER
+const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-import { swaggerUi } from 'swagger-ui-express';
 
 import {Router} from "./route/Router";
 import Interceptor from "./interceptor/Interceptor";
@@ -38,9 +36,7 @@ export class App {
         //this.express.use(Interceptor.intercept);
         this.router.init(express);
         this.express.use('/api', this.router.getRoutes());
-
-        //Configurar documento swagger antes de descomentar
-        //this.express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+        this.express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     }
 
     public getExpress:Function = () => {

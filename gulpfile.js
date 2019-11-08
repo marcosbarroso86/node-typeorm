@@ -5,7 +5,6 @@ const terser = require('gulp-terser');
 const concat = require('gulp-concat');
 const nodemon = require('gulp-nodemon');
 const ts = require('gulp-typescript');
-
 const config = require('./gulp/config.js');
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -41,7 +40,14 @@ gulp.task('start', () => {
 		ext: 'js',
 		env: {
 			'NODE_ENV': 'development',
-			"JWT_SECRET" : 'my_secret_key'
+			'type': 'oracle',
+			'host': 'localhost',
+			'port': '1521',
+			'username': 'SYSTEM',
+			'password': 'Welcome_1',
+			'sid': 'ORCL18',
+			'database': 'COMPANY',
+			'JWT_SECRET' : 'my_secret_key'
 		}
 	});
 
