@@ -48,7 +48,7 @@
     "typeorm": "^0.2.0"
   },
   "scripts": {
-    "start": "node node_modules/gulp/bin/gulp.js start-dev",
+    "start": "ls && node ./node_modules/gulp/bin/gulp.js start-dev",
     "start:prod": "node dist/server.js",
     "build": "node node_modules/gulp/bin/gulp.js",
     "test": "node node_modules/jasmine/bin/jasmine.js"
