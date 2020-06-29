@@ -9,15 +9,18 @@ const swaggerUi = require('swagger-ui-express');
 
 import {Router} from "./route/Router";
 import Interceptor from "./interceptor/Interceptor";
+import { Health } from "./components/Health";
 
 // Create and configure ExpressJS.
 export class App {
 
     private express:any;
     private router:Router;
+    private health: Health;
 
     constructor() {
         this.router = new Router();
+        this.health = new Health();
         this.express = express();
         this.middleware();
         this.routes();
@@ -37,8 +40,9 @@ export class App {
     private routes(): void {
         //this.express.use(Interceptor.intercept);
         this.router.init(express);
+        this.health.iniciar(express);
         this.express.use('/api', this.router.getRoutes());
-
+        this.express.use('/health' , this.health.obtenerRutas())
         //Configurar documento swagger antes de descomentar
         this.express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     }
